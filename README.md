@@ -17,8 +17,8 @@ Use the GROVE port to connect the sensor to the M5.
 
 |Ultrasonic||GROVE Port|
 |:-:|:-:|:-:|
-|GND|--|GND|
-|Echo|--|SDA|
-|Trig|--|SCL|
-|VCC|--|VCC|
+|GND|--|GND(Black)|
+|Echo|--|SDA(White)|
+|Trig|--|SCL(Yellow)|
+|VCC|--|VCC(Red)|
 
