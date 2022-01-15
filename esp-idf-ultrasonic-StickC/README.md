@@ -3,11 +3,13 @@
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
 cd esp-idf-ultrasonic/esp-idf-ultrasonic-StackC
-make menuconfig
-make flash
+idf.pu menuconfig
+idf.py flash --baud 115200
 ```
 
 \*There is no MENU ITEM where this application is peculiar.   
+
+__It is necessary to specify the baud rate at the time of Flash.__   
 
 ---
 

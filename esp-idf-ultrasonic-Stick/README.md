@@ -3,8 +3,8 @@
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
 cd esp-idf-ultrasonic/esp-idf-ultrasonic-Stick
-make menuconfig
-make flash
+idf.py menuconfig
+idf.py flash
 ```
 
 \*There is no MENU ITEM where this application is peculiar.   

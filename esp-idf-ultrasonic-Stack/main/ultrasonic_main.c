@@ -364,7 +364,7 @@ void tft(void *pvParameters)
 	} SAVE_t;
 
 	int lines = (SCREEN_HEIGHT - fontHeight) / fontHeight;
-	ESP_LOGD(TAG, "SCREEN_HEIGHT=%d fontHeight=%d lines=%d", SCREEN_HEIGHT, fontHeight, lines);
+	ESP_LOGD(pcTaskGetTaskName(0), "SCREEN_HEIGHT=%d fontHeight=%d lines=%d", SCREEN_HEIGHT, fontHeight, lines);
 	SAVE_t save[10];
 	for(int i=0;i<lines;i++) {
 		save[i].enable = false;
@@ -426,7 +426,7 @@ void tft(void *pvParameters)
 			if (redraw) {
 				//lcdDrawFillRect(dev, 0, fontHeight, SCREEN_WIDTH-1, SCREEN_HEIGHT-1, BLACK);
 				for(int j=0;j<lines;j++) {
-					ESP_LOGD(TAG, "enable[%d]=%d",j, save[j].enable);
+					ESP_LOGD(pcTaskGetTaskName(0), "enable[%d]=%d",j, save[j].enable);
 					lcdDrawFillRect(&dev, 0, fontHeight*(j+1), SCREEN_WIDTH-1, fontHeight*(j+2)-1, BLACK);
 					lcdDrawString(&dev, fxM, 0, fontHeight*(j+2)-1, (uint8_t *)save[j].line, save[j].color);
 				}
