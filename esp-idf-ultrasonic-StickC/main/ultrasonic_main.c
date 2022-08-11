@@ -86,7 +86,7 @@ typedef struct {
 
 void ultrasonic(void *pvParamters)
 {
-	ESP_LOGI(pcTaskGetTaskName(0), "Start");
+	ESP_LOGI(pcTaskGetName(0), "Start");
 	CMD_t cmdBuf;
 	cmdBuf.command = CMD_MEASURE;
 	cmdBuf.taskHandle = xTaskGetCurrentTaskHandle();
@@ -129,18 +129,18 @@ void ultrasonic(void *pvParamters)
 #if CONFIG_STICK || CONFIG_STICKC
 void buttonStick(void *pvParameters)
 {
-	ESP_LOGI(pcTaskGetTaskName(0), "Start");
+	ESP_LOGI(pcTaskGetName(0), "Start");
 	CMD_t cmdBuf;
 	cmdBuf.taskHandle = xTaskGetCurrentTaskHandle();
 
 	// set the GPIO as a input
-	gpio_pad_select_gpio(GPIO_INPUT);
+	gpio_reset_pin(GPIO_INPUT);
 	gpio_set_direction(GPIO_INPUT, GPIO_MODE_DEF_INPUT);
 
 	while(1) {
 		int level = gpio_get_level(GPIO_INPUT);
 		if (level == 0) {
-			ESP_LOGI(pcTaskGetTaskName(0), "Push Button");
+			ESP_LOGI(pcTaskGetName(0), "Push Button");
 			TickType_t startTick = xTaskGetTickCount();
 			while(1) {
 				level = gpio_get_level(GPIO_INPUT);
@@ -149,7 +149,7 @@ void buttonStick(void *pvParameters)
 			}
 			TickType_t endTick = xTaskGetTickCount();
 			TickType_t diffTick = endTick-startTick;
-			ESP_LOGI(pcTaskGetTaskName(0),"diffTick=%d",diffTick);
+			ESP_LOGI(pcTaskGetName(0),"diffTick=%d",diffTick);
 			cmdBuf.command = CMD_START;
 			if (diffTick > 200) cmdBuf.command = CMD_STOP;
 			xQueueSend(xQueueCmd, &cmdBuf, 0);
@@ -162,19 +162,19 @@ void buttonStick(void *pvParameters)
 #if CONFIG_STACK
 void buttonA(void *pvParameters)
 {
-	ESP_LOGI(pcTaskGetTaskName(0), "Start");
+	ESP_LOGI(pcTaskGetName(0), "Start");
 	CMD_t cmdBuf;
 	cmdBuf.command = CMD_START;
 	cmdBuf.taskHandle = xTaskGetCurrentTaskHandle();
 
 	// set the GPIO as a input
-	gpio_pad_select_gpio(GPIO_INPUT_A);
+	gpio_reset_pin(GPIO_INPUT_A);
 	gpio_set_direction(GPIO_INPUT_A, GPIO_MODE_DEF_INPUT);
 
 	while(1) {
 		int level = gpio_get_level(GPIO_INPUT_A);
 		if (level == 0) {
-			ESP_LOGI(pcTaskGetTaskName(0), "Push Button");
+			ESP_LOGI(pcTaskGetName(0), "Push Button");
 			while(1) {
 				level = gpio_get_level(GPIO_INPUT_A);
 				if (level == 1) break;
@@ -188,19 +188,19 @@ void buttonA(void *pvParameters)
 
 void buttonB(void *pvParameters)
 {
-	ESP_LOGI(pcTaskGetTaskName(0), "Start");
+	ESP_LOGI(pcTaskGetName(0), "Start");
 	CMD_t cmdBuf;
 	cmdBuf.command = CMD_STOP;
 	cmdBuf.taskHandle = xTaskGetCurrentTaskHandle();
 
 	// set the GPIO as a input
-	gpio_pad_select_gpio(GPIO_INPUT_B);
+	gpio_reset_pin(GPIO_INPUT_B);
 	gpio_set_direction(GPIO_INPUT_B, GPIO_MODE_DEF_INPUT);
 
 	while(1) {
 		int level = gpio_get_level(GPIO_INPUT_B);
 		if (level == 0) {
-			ESP_LOGI(pcTaskGetTaskName(0), "Push Button");
+			ESP_LOGI(pcTaskGetName(0), "Push Button");
 			while(1) {
 				level = gpio_get_level(GPIO_INPUT_B);
 				if (level == 1) break;
@@ -214,19 +214,19 @@ void buttonB(void *pvParameters)
 
 void buttonC(void *pvParameters)
 {
-	ESP_LOGI(pcTaskGetTaskName(0), "Start");
+	ESP_LOGI(pcTaskGetName(0), "Start");
 	CMD_t cmdBuf;
 	cmdBuf.command = CMD_CLEAR;
 	cmdBuf.taskHandle = xTaskGetCurrentTaskHandle();
 
 	// set the GPIO as a input
-	gpio_pad_select_gpio(GPIO_INPUT_C);
+	gpio_reset_pin(GPIO_INPUT_C);
 	gpio_set_direction(GPIO_INPUT_C, GPIO_MODE_DEF_INPUT);
 
 	while(1) {
 		int level = gpio_get_level(GPIO_INPUT_C);
 		if (level == 0) {
-			ESP_LOGI(pcTaskGetTaskName(0), "Push Button");
+			ESP_LOGI(pcTaskGetName(0), "Push Button");
 			while(1) {
 				level = gpio_get_level(GPIO_INPUT_C);
 				if (level == 1) break;
@@ -242,7 +242,7 @@ void buttonC(void *pvParameters)
 #if CONFIG_STACK
 void tft(void *pvParameters)
 {
-	ESP_LOGI(pcTaskGetTaskName(0), "Start");
+	ESP_LOGI(pcTaskGetName(0), "Start");
 	// set font file
 	FontxFile fxG[2];
 	InitFontx(fxG,"/spiffs/ILGH24XB.FNT",""); // 12x24Dot Gothic
@@ -254,18 +254,18 @@ void tft(void *pvParameters)
 	uint8_t fontWidth;
 	uint8_t fontHeight;
 	GetFontx(fxG, 0, buffer, &fontWidth, &fontHeight);
-	ESP_LOGI(pcTaskGetTaskName(0), "fontWidth=%d fontHeight=%d",fontWidth,fontHeight);
+	ESP_LOGI(pcTaskGetName(0), "fontWidth=%d fontHeight=%d",fontWidth,fontHeight);
 
 	// Setup Screen
 	TFT_t dev;
 	spi_master_init(&dev, CS_GPIO, DC_GPIO, RESET_GPIO, BL_GPIO);
 	lcdInit(&dev, 0x9341, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
-	ESP_LOGI(pcTaskGetTaskName(0), "Setup Screen done");
+	ESP_LOGI(pcTaskGetName(0), "Setup Screen done");
 
 	int lines = (SCREEN_HEIGHT - fontHeight) / fontHeight;
-	ESP_LOGD(pcTaskGetTaskName(0), "SCREEN_HEIGHT=%d fontHeight=%d lines=%d", SCREEN_HEIGHT, fontHeight, lines);
+	ESP_LOGD(pcTaskGetName(0), "SCREEN_HEIGHT=%d fontHeight=%d lines=%d", SCREEN_HEIGHT, fontHeight, lines);
 	int ymax = (lines+1) * fontHeight;
-	ESP_LOGD(pcTaskGetTaskName(0), "ymax=%d",ymax);
+	ESP_LOGD(pcTaskGetName(0), "ymax=%d",ymax);
 
 	// Initial Screen
 	uint8_t ascii[DISPLAY_LENGTH+1];
@@ -289,7 +289,7 @@ void tft(void *pvParameters)
 
 	while(1) {
 		xQueueReceive(xQueueCmd, &cmdBuf, portMAX_DELAY);
-		ESP_LOGI(pcTaskGetTaskName(0),"cmdBuf.command=%d", cmdBuf.command);
+		ESP_LOGI(pcTaskGetName(0),"cmdBuf.command=%d", cmdBuf.command);
 		if (cmdBuf.command == CMD_START) {
 			enabled = true;
 			strcpy((char *)ascii, "Stop ");
@@ -342,7 +342,7 @@ void tft(void *pvParameters)
 #if CONFIG_STICKC
 void tft(void *pvParameters)
 {
-	ESP_LOGI(pcTaskGetTaskName(0), "Start");
+	ESP_LOGI(pcTaskGetName(0), "Start");
 	// set font file
 	FontxFile fxG[2];
 	InitFontx(fxG,"/spiffs/ILGH16XB.FNT",""); // 8x16Dot Gothic
@@ -354,7 +354,7 @@ void tft(void *pvParameters)
 	uint8_t fontWidth;
 	uint8_t fontHeight;
 	GetFontx(fxG, 0, buffer, &fontWidth, &fontHeight);
-	ESP_LOGI(pcTaskGetTaskName(0), "fontWidth=%d fontHeight=%d",fontWidth,fontHeight);
+	ESP_LOGI(pcTaskGetName(0), "fontWidth=%d fontHeight=%d",fontWidth,fontHeight);
 
 	// Initialize save area
 	typedef struct {
@@ -364,7 +364,7 @@ void tft(void *pvParameters)
 	} SAVE_t;
 
 	int lines = (SCREEN_HEIGHT - fontHeight) / fontHeight;
-	ESP_LOGD(pcTaskGetTaskName(0), "SCREEN_HEIGHT=%d fontHeight=%d lines=%d", SCREEN_HEIGHT, fontHeight, lines);
+	ESP_LOGD(pcTaskGetName(0), "SCREEN_HEIGHT=%d fontHeight=%d lines=%d", SCREEN_HEIGHT, fontHeight, lines);
 	SAVE_t save[10];
 	for(int i=0;i<lines;i++) {
 		save[i].enable = false;
@@ -374,7 +374,7 @@ void tft(void *pvParameters)
 	ST7735_t dev;
 	spi_master_init(&dev);
 	lcdInit(&dev, SCREEN_WIDTH, SCREEN_HEIGHT);
-	ESP_LOGI(pcTaskGetTaskName(0), "Setup Screen done");
+	ESP_LOGI(pcTaskGetName(0), "Setup Screen done");
 
 	// Initial Screen
 	uint16_t color = CYAN;
@@ -389,7 +389,7 @@ void tft(void *pvParameters)
 
 	while(1) {
 		xQueueReceive(xQueueCmd, &cmdBuf, portMAX_DELAY);
-		ESP_LOGI(pcTaskGetTaskName(0),"cmdBuf.command=%d", cmdBuf.command);
+		ESP_LOGI(pcTaskGetName(0),"cmdBuf.command=%d", cmdBuf.command);
 		if (cmdBuf.command == CMD_START) {
 			enabled = true;
 			strcpy((char *)ascii, "DISTANCE  ");
@@ -426,7 +426,7 @@ void tft(void *pvParameters)
 			if (redraw) {
 				//lcdDrawFillRect(dev, 0, fontHeight, SCREEN_WIDTH-1, SCREEN_HEIGHT-1, BLACK);
 				for(int j=0;j<lines;j++) {
-					ESP_LOGD(pcTaskGetTaskName(0), "enable[%d]=%d",j, save[j].enable);
+					ESP_LOGD(pcTaskGetName(0), "enable[%d]=%d",j, save[j].enable);
 					lcdDrawFillRect(&dev, 0, fontHeight*(j+1), SCREEN_WIDTH-1, fontHeight*(j+2)-1, BLACK);
 					lcdDrawString(&dev, fxM, 0, fontHeight*(j+2)-1, (uint8_t *)save[j].line, save[j].color);
 				}
@@ -451,7 +451,7 @@ void tft(void *pvParameters)
 	SH1107_t dev;
 	spi_master_init(&dev);
 	spi_init(&dev, 64, 128);
-	ESP_LOGI(pcTaskGetTaskName(0), "Setup Screen done");
+	ESP_LOGI(pcTaskGetName(0), "Setup Screen done");
 
 	// Initial Screen
 	char ascii[DISPLAY_LENGTH+1];
@@ -465,7 +465,7 @@ void tft(void *pvParameters)
 
 	while(1) {
 		xQueueReceive(xQueueCmd, &cmdBuf, portMAX_DELAY);
-		ESP_LOGI(pcTaskGetTaskName(0),"cmdBuf.command=%d", cmdBuf.command);
+		ESP_LOGI(pcTaskGetName(0),"cmdBuf.command=%d", cmdBuf.command);
 		if (cmdBuf.command == CMD_START) {
 			enabled = true;
 			display_text(&dev, 0, "DISTANCE", 8, true);
