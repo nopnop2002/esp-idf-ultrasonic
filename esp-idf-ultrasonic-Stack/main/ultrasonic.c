@@ -34,7 +34,6 @@ void ultrasonic_init(const ultrasonic_sensor_t *dev)
 {
     gpio_reset_pin( dev->trigger_pin );
     gpio_reset_pin( dev->echo_pin );
-    gpio_reset_pin( dev->echo_pin );
     gpio_set_direction(dev->trigger_pin, GPIO_MODE_OUTPUT);
     gpio_set_direction(dev->echo_pin, GPIO_MODE_INPUT);
 
