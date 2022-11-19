@@ -13,10 +13,10 @@ idf.py flash
 
 |Ultrasonic||ESP32|
 |:-:|:-:|:-:|
-|GND|--|GND(GROVE Black)|
-|Echo|--|GPIO21(GROVE White)|
-|Trig|--|GPIO22(GROVE Yellow)|
-|VCC|--|5V(GROVE Red)|
+|GND|--|GND(GROVE GND)|
+|Echo|--|GPIO21(GROVE SDA)|
+|Trig|--|GPIO22(GROVE SCL)|
+|VCC|--|5V(GROVE VCC)|
 
 # How to use
 
