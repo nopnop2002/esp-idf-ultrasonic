@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <inttypes.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -16,9 +17,9 @@
 
 #define MAX_DISTANCE_CM 500 // 5m max
 
-#define CONFIG_STACK    1
-#define CONFIG_STICKC   0
-#define CONFIG_STICK    0
+#define CONFIG_STACK 1
+#define CONFIG_STICKC 0
+#define CONFIG_STICK 0
 
 #if CONFIG_STACK
 #include "ili9340.h"
@@ -37,42 +38,44 @@
 #endif
 
 #if CONFIG_STACK
-#define SCREEN_WIDTH	320
-#define SCREEN_HEIGHT	240
-#define CS_GPIO		14
-#define DC_GPIO		27
-#define RESET_GPIO	33
-#define BL_GPIO		32
+#define SCREEN_WIDTH 320
+#define SCREEN_HEIGHT 240
+#define CONFIG_MOSI_GPIO 23
+#define CONFIG_SCLK_GPIO 18
+#define CONFIG_TFT_CS_GPIO 14
+#define CONFIG_DC_GPIO 27
+#define CONFIG_RESET_GPIO 33
+#define CONFIG_BL_GPIO 32
 #define DISPLAY_LENGTH	26
-#define GPIO_INPUT_A	GPIO_NUM_39
-#define GPIO_INPUT_B	GPIO_NUM_38
-#define GPIO_INPUT_C	GPIO_NUM_37
-#define GPIO_TRIGGER	22
-#define GPIO_ECHO	21
+#define GPIO_INPUT_A GPIO_NUM_39
+#define GPIO_INPUT_B GPIO_NUM_38
+#define GPIO_INPUT_C GPIO_NUM_37
+#define GPIO_TRIGGER 22
+#define GPIO_ECHO 21
 #endif
 
 
 #if CONFIG_STICKC
-#define SCREEN_WIDTH	80
-#define SCREEN_HEIGHT	160
-#define DISPLAY_LENGTH	10
-#define GPIO_INPUT	GPIO_NUM_37
-#define GPIO_TRIGGER	33
-#define GPIO_ECHO	32
+#define SCREEN_WIDTH 80
+#define SCREEN_HEIGHT 160
+#define DISPLAY_LENGTH 10
+#define GPIO_INPUT GPIO_NUM_37
+#define GPIO_TRIGGER 33
+#define GPIO_ECHO 32
 #endif
 
 #if CONFIG_STICK
-#define DISPLAY_LENGTH	8
-#define GPIO_INPUT	GPIO_NUM_35
-#define GPIO_BUZZER	GPIO_NUM_26
-#define GPIO_TRIGGER	13
-#define GPIO_ECHO	25
+#define DISPLAY_LENGTH 8
+#define GPIO_INPUT GPIO_NUM_35
+#define GPIO_BUZZER GPIO_NUM_26
+#define GPIO_TRIGGER 13
+#define GPIO_ECHO 25
 #endif
 
-#define CMD_START	100
-#define CMD_STOP	200
-#define CMD_MEASURE	300
-#define CMD_CLEAR	400
+#define CMD_START 100
+#define CMD_STOP 200
+#define CMD_MEASURE 300
+#define CMD_CLEAR 400
 
 QueueHandle_t xQueueCmd;
 
@@ -117,7 +120,7 @@ void ultrasonic(void *pvParamters)
 					printf("%d\n", res);
 			}
 		} else {
-			printf("Distance: %d cm, %.02f m\n", distance, distance / 100.0);
+			printf("Distance: %"PRIu32" cm, %.02f m\n", distance, distance / 100.0);
 			cmdBuf.distance = distance;
 			xQueueSend(xQueueCmd, &cmdBuf, 0);
 		}
@@ -258,7 +261,12 @@ void tft(void *pvParameters)
 
 	// Setup Screen
 	TFT_t dev;
-	spi_master_init(&dev, CS_GPIO, DC_GPIO, RESET_GPIO, BL_GPIO);
+	int MISO_GPIO = -1;
+	int XPT_CS_GPIO = -1;
+	int XPT_IRQ_GPIO = -1;
+	spi_master_init(&dev, CONFIG_MOSI_GPIO, CONFIG_SCLK_GPIO, CONFIG_TFT_CS_GPIO, CONFIG_DC_GPIO,
+		CONFIG_RESET_GPIO, CONFIG_BL_GPIO, MISO_GPIO, XPT_CS_GPIO, XPT_IRQ_GPIO);
+	//spi_master_init(&dev, CS_GPIO, DC_GPIO, RESET_GPIO, BL_GPIO);
 	lcdInit(&dev, 0x9341, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
 	ESP_LOGI(pcTaskGetName(0), "Setup Screen done");
 
@@ -289,7 +297,7 @@ void tft(void *pvParameters)
 
 	while(1) {
 		xQueueReceive(xQueueCmd, &cmdBuf, portMAX_DELAY);
-		ESP_LOGI(pcTaskGetName(0),"cmdBuf.command=%d", cmdBuf.command);
+		ESP_LOGD(pcTaskGetName(0),"cmdBuf.command=%d", cmdBuf.command);
 		if (cmdBuf.command == CMD_START) {
 			enabled = true;
 			strcpy((char *)ascii, "Stop ");
@@ -315,7 +323,7 @@ void tft(void *pvParameters)
 
 		} else if (cmdBuf.command == CMD_MEASURE) {
 			if (!enabled) continue;
-			sprintf((char *)ascii, "%d cm", cmdBuf.distance);
+			sprintf((char *)ascii, "%"PRIu32" cm", cmdBuf.distance);
 			if (current < lines) {
 				lcdDrawString(&dev, fxM, 0, ypos, ascii, CYAN);
 			} else {

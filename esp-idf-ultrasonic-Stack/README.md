@@ -9,7 +9,14 @@ idf.py flash
 
 \*There is no MENU ITEM where this application is peculiar.   
 
----
+# Wirering
+
+|Ultrasonic||ESP32|
+|:-:|:-:|:-:|
+|GND|--|GND(GROVE Black)|
+|Echo|--|GPIO21(GROVE White)|
+|Trig|--|GPIO22(GROVE Yellow)|
+|VCC|--|5V(GROVE Red)|
 
 # How to use
 
