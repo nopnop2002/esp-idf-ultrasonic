@@ -5,6 +5,8 @@ cmake_minimum_required(VERSION 3.5)
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(ultrasonic)
 
+idf_build_set_property(COMPILE_OPTIONS "-DM5STACK" APPEND)
+
 # Create a SPIFFS image from the contents of the 'font' directory
 # that fits the partition named 'storage'. FLASH_IN_PROJECT indicates that
 # the generated image should be flashed when the entire project is flashed to

@@ -17,9 +17,13 @@
 
 #define MAX_DISTANCE_CM 500 // 5m max
 
+#if defined(M5STACK)
 #define CONFIG_STACK 1
-#define CONFIG_STICKC 0
-#define CONFIG_STICK 0
+#elif defined(M5STICK)
+#define CONFIG_STICK 1
+#elif defined(M5STICK_C)
+#define CONFIG_STICKC 1
+#endif
 
 #if CONFIG_STACK
 #include "ili9340.h"
