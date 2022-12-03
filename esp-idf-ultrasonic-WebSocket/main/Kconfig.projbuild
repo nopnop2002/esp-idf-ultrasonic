@@ -1,0 +1,112 @@
+menu "Application configuration"
+
+	config GPIO_RANGE_MAX
+		int
+		default 33 if IDF_TARGET_ESP32
+		default 46 if IDF_TARGET_ESP32S2
+		default 19 if IDF_TARGET_ESP32C3
+		default 48 if IDF_TARGET_ESP32S3
+
+	menu "WiFi Setting"
+
+		config ESP_WIFI_SSID
+			string "WiFi SSID"
+			default "myssid"
+			help
+				SSID (network name) to connect to.
+
+		config ESP_WIFI_PASSWORD
+			string "WiFi Password"
+			default "mypassword"
+			help
+				WiFi password (WPA or WPA2) to connect to.
+
+		config ESP_MAXIMUM_RETRY
+			int "Maximum retry"
+			default 5
+			help
+				Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
+
+		config MDNS_HOSTNAME
+			string "mDNS Hostname"
+			default "esp32-server"
+			help
+				The mDNS host name used by the ESP32.
+
+		config STATIC_IP
+			bool "Enable Static IP Address"
+			default false
+			help
+				Enable Static IP Address.
+
+		config STATIC_IP_ADDRESS
+			depends on STATIC_IP
+			string "Static IP Address"
+			default "192.168.10.100"
+			help
+				Static IP Address for Station.
+
+		config STATIC_GW_ADDRESS
+			depends on STATIC_IP
+			string "Static GW Address"
+			default "192.168.10.1"
+			help
+				Static GW Address for Station.
+
+		config STATIC_NM_ADDRESS
+			depends on STATIC_IP
+			string "Static Netmask"
+			default "255.255.255.0"
+			help
+				Static Netmask for Station.
+
+	endmenu
+
+	menu "Sensor Setting"
+
+		config GPIO_TRIGGER
+			int "TRIGGER GPIO number"
+			range 0 GPIO_RANGE_MAX
+			default 22 if IDF_TARGET_ESP32
+			default 12 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+			default  6 if IDF_TARGET_ESP32C3
+			help
+				GPIO number (IOxx) to TRIGGER.
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to ADC.
+
+		config GPIO_ECHO
+			int "ECHO GPIO number"
+			range 0 GPIO_RANGE_MAX
+			default 21 if IDF_TARGET_ESP32
+			default 11 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+			default  5 if IDF_TARGET_ESP32C3
+			help
+				GPIO number (IOxx) to ECHO.
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to ADC.
+
+		config MEASURE_CYCLE
+			int "Measurement cycle tick"
+			range 100 1000
+			default 100
+			help
+				Measurement cycle tick.
+
+		choice METER
+			prompt "Select Meter Type"
+			default METER_RADIAL
+			help
+				Select Meter Type.
+			config METER_RADIAL
+				bool "Radial Meter"
+				help
+					Radial Meter.
+			config METER_LINEAR
+				bool "Linear Meter"
+				help
+					Linear Meter.
+		endchoice
+
+	endmenu
+
+endmenu
+
