@@ -24,4 +24,4 @@ Use the GROVE port to connect the sensor to the M5.
 (*1)   
 Ultrasonic ranging module is originally driven by 5V, but it also works with 3.3V.   
 For long distance measurements, drive with 5V.   
-Then level shift Trigger from 5V to 3.3V.   
+Then level shift Echo from 5V to 3.3V.   
