@@ -19,7 +19,7 @@ Use the GROVE port to connect the sensor to the M5.
 |GND|--|GND||
 |Echo|--|SDA|(*1)|
 |Trig|--|SCL||
-|VCC|--|VCC||
+|VCC|--|VCC(5V)||
 
 (*1)   
 The ultrasonic ranging module is powered by 5V.   
