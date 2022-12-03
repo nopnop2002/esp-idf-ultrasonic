@@ -11,12 +11,16 @@ idf.py flash
 
 # Wirering
 
-|Ultrasonic||ESP32|
-|:-:|:-:|:-:|
-|GND|--|GND(GROVE GND)|
-|Echo|--|GPIO21(GROVE SDA)|
-|Trig|--|GPIO22(GROVE SCL)|
-|VCC|--|5V(GROVE VCC)|
+|Ultrasonic||ESP32||
+|:-:|:-:|:-:|:-:|
+|GND|--|GND or GROVE-GND||
+|Echo|--|GPIO21 or GROVE-SDA|(*1)|
+|Trig|--|GPIO22 or GROVE-SCL||
+|VCC|--|5V or GROVE-VCC||
+
+(*1)   
+The ultrasonic ranging module is powered by 5V.   
+So you need to level shift your Echo from 5V to 3.3V.   
 
 # How to use
 
