@@ -20,4 +20,13 @@ I forked from [here](https://github.com/UncleRus/esp-idf-lib/tree/master/example
 esp-idf v4.4/v5.0.   
 
 
+# Speed of sound
+The speed of sound is affected by temperature and can be calculated with 331.5+0.61*temperature [m/sec].   
+If the temperature is 20 degrees, it will be 331.5+0.61*20=343.7[m/sec].   
+343.7[m/sec]=34370[cm/sec]=34.37[cm/millisec]=0.03437[cm/microsec]   
+Counting backwards, the time required for 1 cm is 29.0951 microseconds.   
+In other words, if we divide the round trip time [microseconds] from the emission of the sound wave to its return by 29.0951*2 (ÅÇ58.2), we get   
+You can get the desired distance [cm] when the temperature is 20 degrees.   
+This example uses 58 as an approximation.   
+If you want more accuracy, you should measure the temperature at the same time and use the measured temperature to calculate the distance.   
 
