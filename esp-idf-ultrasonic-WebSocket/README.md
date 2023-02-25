@@ -59,7 +59,7 @@ You can change any pin using menuconfig.
 - Open browser.   
 - Enter the esp32 IP address in your browser's address bar.   
 - You can use the mDNS hostname instead of the IP address.   
-Å@http://esp32-server.local   
+ http://esp32-server.local   
 
 # WEB Page
 WEB page is stored in the html folder.   
