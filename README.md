@@ -22,10 +22,10 @@ esp-idf v4.4/v5.0.
 
 # Speed of sound
 The speed of sound is affected by temperature and can be calculated with 331.5+0.61\*temperature[m/sec].   
-If the temperature is 20 degrees, it will be ```331.5+0.61*20=343.7```[m/sec].   
+If the temperature is 20 degrees, it will be 331.5+0.61\*20=343.7[m/sec].   
 343.7[m/sec]=34370[cm/sec]=34.37[cm/millisec]=0.03437[cm/microsec]   
 Counting backwards, the time required for 1 cm is 29.0951 microseconds.   
-In other words, the desired distance [cm] when the temperature is 20 degrees can be calculated by dividing the round trip time [microseconds] from the time the sound wave is emitted until it returns by ```29.0951*2 (approximately 58.2)```.   
+In other words, the desired distance [cm] when the temperature is 20 degrees can be calculated by dividing the round trip time [microseconds] from the time the sound wave is emitted until it returns by 29.0951\*2 (approximately 58.2).   
 This example uses 58 as an approximation.   
 If you want more accuracy, you should measure the temperature at the same time and use the measured temperature to calculate the distance.   
 
