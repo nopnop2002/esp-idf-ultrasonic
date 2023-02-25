@@ -1,5 +1,5 @@
 # esp-idf-ultrasonic-StickC
-This is the repository for M5Stick.   
+This is the repository for M5StickC.   
 
 # How to build
 
