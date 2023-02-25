@@ -14,7 +14,7 @@ I forked from [here](https://github.com/UncleRus/esp-idf-lib/tree/master/example
 
 - esp-idf-ultrasonic-Stack is for M5Stack
 
-- esp-idf-ultrasonic-WebSocket is fo generic ESP32
+- esp-idf-ultrasonic-WebSocket is for generic ESP32
 
 # Software requirement
 esp-idf v4.4/v5.0.   
