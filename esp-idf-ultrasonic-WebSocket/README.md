@@ -13,6 +13,7 @@ It's a great job.
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
 cd esp-idf-ultrasonic/esp-idf-ultrasonic-WebSocket
 git clone https://github.com/Molorius/esp32-websocket components/websocket
+idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3}
 idf.py menuconfig
 idf.py flash
 ```
@@ -39,12 +40,12 @@ You can use the MDNS hostname instead of the IP address.
 
 # Wirering
 
-|Ultrasonic||ESP32||
-|:-:|:-:|:-:|:-:|
-|GND|--|GND||
-|Echo|--|GPIO21|(*1)(*2)|
-|Trig|--|GPIO22|(*2)|
-|VCC|--|5V||
+|Ultrasonic||ESP32|ESP32-S2/S3|ESP32-C2/C3||
+|:-:|:-:|:-:|:-:|:-:|:-:|
+|GND|--|GND|GND|GND||
+|Echo|--|GPIO21|GPIO12|GPIO6|(*1)(*2)|
+|Trig|--|GPIO22|GPIO11|GPIO5|(*2)|
+|VCC|--|5V|5V|5V||
 
 (*1)   
 The ultrasonic ranging module is powered by 5V.   
