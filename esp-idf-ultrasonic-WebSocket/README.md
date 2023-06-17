@@ -57,9 +57,10 @@ You can change any pin using menuconfig.
 
 
 # How to use
-- Open browser.   
-- Enter the esp32 IP address in your browser's address bar.   
-- You can use the mDNS hostname instead of the IP address.   
+Open browser.   
+Enter the esp32 IP address in your browser's address bar.   
+You can use the mDNS hostname instead of the IP address.
+Default mDNS name is esp32-server.local.
 
 # WEB Page
 WEB page is stored in the html folder.   
