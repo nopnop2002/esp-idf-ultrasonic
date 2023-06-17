@@ -43,8 +43,8 @@ You can use the MDNS hostname instead of the IP address.
 |Ultrasonic||ESP32|ESP32-S2/S3|ESP32-C2/C3||
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |GND|--|GND|GND|GND||
-|Echo|--|GPIO21|GPIO12|GPIO6|(*1)(*2)|
-|Trig|--|GPIO22|GPIO11|GPIO5|(*2)|
+|Echo|--|GPIO21|GPIO11|GPIO5|(*1)(*2)|
+|Trig|--|GPIO22|GPIO12|GPIO6|(*2)|
 |VCC|--|5V|5V|5V||
 
 (*1)   
