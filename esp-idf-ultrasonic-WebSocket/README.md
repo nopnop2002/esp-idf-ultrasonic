@@ -8,12 +8,18 @@ This component can communicate directly with the browser.
 There is an example of using the component [here](https://github.com/Molorius/ESP32-Examples).
 It's a great job.   
 
+# Software requirements
+ESP-IDF V4.4/V5.x.   
+ESP-IDF V5.0 is required when using ESP32-C2.   
+ESP-IDF V5.1 is required when using ESP32-C6.   
+
+
 # How to build
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
 cd esp-idf-ultrasonic/esp-idf-ultrasonic-WebSocket
 git clone https://github.com/Molorius/esp32-websocket components/websocket
-idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3}
+idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3/esp32c6}
 idf.py menuconfig
 idf.py flash
 ```
@@ -40,7 +46,7 @@ You can use the MDNS hostname instead of the IP address.
 
 # Wirering
 
-|Ultrasonic||ESP32|ESP32-S2/S3|ESP32-C2/C3||
+|Ultrasonic||ESP32|ESP32-S2/S3|ESP32-C2/C3/C6||
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |GND|--|GND|GND|GND||
 |Echo|--|GPIO21|GPIO11|GPIO5|(*1)(*2)|
