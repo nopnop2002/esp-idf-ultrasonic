@@ -8,12 +8,6 @@ This component can communicate directly with the browser.
 There is an example of using the component [here](https://github.com/Molorius/ESP32-Examples).
 It's a great job.   
 
-# Software requirements
-ESP-IDF V4.4/V5.x.   
-ESP-IDF V5.0 is required when using ESP32-C2.   
-ESP-IDF V5.1 is required when using ESP32-C6.   
-
-
 # How to build
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
