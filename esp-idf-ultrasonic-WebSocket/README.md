@@ -38,7 +38,7 @@ You can use the MDNS hostname instead of the IP address.
 
 
 
-# Wirering
+# Wiring
 
 |Ultrasonic||ESP32|ESP32-S2/S3|ESP32-C2/C3/C6||
 |:-:|:-:|:-:|:-:|:-:|:-:|

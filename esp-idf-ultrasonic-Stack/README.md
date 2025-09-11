@@ -12,7 +12,7 @@ idf.py flash
 
 \*There is no MENU ITEM where this application is peculiar.   
 
-# Wirering
+# Wiring
 
 |Ultrasonic||ESP32||
 |:-:|:-:|:-:|:-:|

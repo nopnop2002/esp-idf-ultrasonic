@@ -12,7 +12,7 @@ idf.py flash
 
 \*There is no MENU ITEM where this application is peculiar.   
 
-# Wirering
+# Wiring
 Use the GROVE port to connect the sensor to the M5Stick.
 
 |Ultrasonic||GROVE Port||

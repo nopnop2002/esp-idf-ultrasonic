@@ -14,7 +14,7 @@ idf.py flash --baud 115200
 
 __It is necessary to specify the baud rate at the time of Flash.__   
 
-# Wirering
+# Wiring
 Use the GROVE port to connect the sensor to the M5StickC.
 
 |Ultrasonic||GROVE Port||
