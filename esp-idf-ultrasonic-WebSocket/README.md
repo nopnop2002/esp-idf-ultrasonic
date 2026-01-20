@@ -6,13 +6,12 @@ This is the repository for generic ESP32.
 I used [this](https://github.com/Molorius/esp32-websocket) component.   
 This component can communicate directly with the browser.   
 There is an example of using the component [here](https://github.com/Molorius/ESP32-Examples).
-It's a great job.   
+This is a great components.   
 
 # How to build
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
 cd esp-idf-ultrasonic/esp-idf-ultrasonic-WebSocket
-git clone https://github.com/Molorius/esp32-websocket components/websocket
 idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3/esp32c6}
 idf.py menuconfig
 idf.py flash
