@@ -29,7 +29,7 @@ idf.py flash
 You can use Static IP.   
 ![config-wifi-2](https://user-images.githubusercontent.com/6020549/205416000-2bae9320-3dff-42bc-8475-a6a58c80a897.jpg)
 
-You can use the MDNS hostname instead of the IP address.   
+You can use the mDNS hostname instead of the IP address.   
 ![config-wifi-3](https://user-images.githubusercontent.com/6020549/205416016-b11ead06-f0a7-4460-8fe3-2d52f8b2acf8.jpg)
 
 
