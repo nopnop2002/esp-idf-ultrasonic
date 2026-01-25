@@ -51,6 +51,13 @@ You can change the display to a linear meter.
 (*1)   
 The ultrasonic ranging module is powered by 5V.   
 So you need to level shift your Echo from 5V to 3.3V.   
+```
+        100       220
+        ohms      ohms
+Echo ---^^^---+---^^^---GND
+              |
+              +---------GPIO
+```
 
 (*2)   
 You can change any pin using menuconfig.   
