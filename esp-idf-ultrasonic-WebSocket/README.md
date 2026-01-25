@@ -1,7 +1,8 @@
 # esp-idf-ultrasonic-WebSocket
 This is the repository for generic ESP32.   
 
-![Ultrasonic-WebSocket](https://user-images.githubusercontent.com/6020549/205416156-c6431e26-35dd-45c8-a910-f4846a4db202.jpg)
+![Image](https://github.com/user-attachments/assets/5e1cb43d-7230-4d62-8963-6cb94ec9a806)
+![Image](https://github.com/user-attachments/assets/b8826410-4e61-4556-9122-f057fa80fb67)
 
 I used [this](https://github.com/Molorius/esp32-websocket) component.   
 This component can communicate directly with the browser.   
@@ -35,7 +36,8 @@ You can use the MDNS hostname instead of the IP address.
 ## Sensor Setting
 ![config-sensor](https://user-images.githubusercontent.com/6020549/205416047-5f6450c6-6fd6-47ce-8bef-507efb5c6f36.jpg)
 
-
+You can change the display to a linear meter.   
+![Image](https://github.com/user-attachments/assets/2c68e545-d169-483d-a637-d4830f7f3c38)
 
 # Wiring
 
