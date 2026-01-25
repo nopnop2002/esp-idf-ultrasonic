@@ -72,7 +72,6 @@ Default mDNS name is esp32-server.local.
 
 # WEB Page
 WEB page is stored in the html folder.   
-You can change it as you like.   
-Radial gauge example is [here](https://rawgit.com/Mikhus/canvas-gauges/master/examples/radial-component.html).   
-Linear gauge example is [here](https://rawgit.com/Mikhus/canvas-gauges/master/examples/linear-component.html).
+I used [this](https://canvas-gauges.com/) for gauge display.   
+You can easily change the gauge design.   
 
