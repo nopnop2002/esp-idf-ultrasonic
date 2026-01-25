@@ -1,8 +1,8 @@
 # esp-idf-ultrasonic-WebSocket
 This is the repository for generic ESP32.   
 
-![Image](https://github.com/user-attachments/assets/5e1cb43d-7230-4d62-8963-6cb94ec9a806)
-![Image](https://github.com/user-attachments/assets/b8826410-4e61-4556-9122-f057fa80fb67)
+![Image](https://github.com/user-attachments/assets/5e1cb43d-7230-4d62-8963-6cb94ec9a806)   
+![Image](https://github.com/user-attachments/assets/b8826410-4e61-4556-9122-f057fa80fb67)   
 
 I used [this](https://github.com/Molorius/esp32-websocket) component.   
 This component can communicate directly with the browser.   
