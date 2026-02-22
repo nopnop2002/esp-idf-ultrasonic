@@ -18,8 +18,8 @@ Use the GROVE port to connect the sensor to the M5Stick.
 |Ultrasonic||GROVE Port||
 |:-:|:-:|:-:|:-:|
 |GND|--|GND||
-|Echo|--|SDA|(*1)|
-|Trig|--|SCL||
+|Echo|--|G25|(*1)|
+|Trig|--|G13||
 |VCC|--|VCC(5V)||
 
 (*1)   
