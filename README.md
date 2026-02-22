@@ -17,9 +17,8 @@ I forked from [here](https://github.com/UncleRus/esp-idf-lib/tree/master/example
 - esp-idf-ultrasonic-WebSocket is for generic ESP32
 
 # Software requirement
-ESP-IDF V5.0 or later.   
-ESP-IDF V4.4 release branch reached EOL in July 2024.   
-ESP-IDF V5.1 is required when using ESP32-C6.   
+ESP-IDF V5.2 or later.   
+Because this project uses the new I2C driver.   
 
 
 # Speed of sound

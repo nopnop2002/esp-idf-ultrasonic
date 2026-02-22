@@ -13,7 +13,6 @@
 #include "esp_spiffs.h"
 
 #include "ultrasonic.h"
-#include "driver/dac.h"
 
 #define MAX_DISTANCE_CM 500 // 5m max
 
@@ -558,14 +557,12 @@ void app_main()
 
 #if CONFIG_STICKC
 	// Power on
-	i2c_master_init();
+	AXP192_Initialize(I2C_NUM_0);
 	AXP192_PowerOn();
 	xTaskCreate(buttonStick, "BUTTON", 1024*2, NULL, 2, NULL);
 #endif
 
 #if CONFIG_STICK
-	// Disable DAC channel 1 (GPIO 25)
-	dac_output_disable(DAC_CHANNEL_1);
 	xTaskCreate(buttonStick, "BUTTON", 1024*2, NULL, 2, NULL);
 #endif
 
