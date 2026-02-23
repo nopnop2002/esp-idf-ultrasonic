@@ -1,5 +1,5 @@
 # esp-idf-ultrasonic
-Ultrasonic distance sensor for ESP-IDF
+Ultrasonic distance sensor for ESP-IDF.   
 
 I forked from [here](https://github.com/UncleRus/esp-idf-lib/tree/master/examples/ultrasonic).   
 
@@ -8,13 +8,13 @@ I forked from [here](https://github.com/UncleRus/esp-idf-lib/tree/master/example
 
 ![HY-SRF05-3](https://user-images.githubusercontent.com/6020549/61570755-a67eff80-aac9-11e9-9e9c-19e946fae39f.JPG)
 
-- esp-idf-ultrasonic-Stick is for M5Stick
+- M5Stick project is for M5Stick
 
-- esp-idf-ultrasonic-StickC is for M5StickC
+- M5StickC project is for M5StickC
 
-- esp-idf-ultrasonic-Stack is for M5Stack
+- M5Stack project is for M5Stack
 
-- esp-idf-ultrasonic-WebSocket is for generic ESP32
+- WebSocket project is for generic ESP32
 
 # Software requirement
 ESP-IDF V5.2 or later.   

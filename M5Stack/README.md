@@ -1,11 +1,11 @@
-# esp-idf-ultrasonic-Stack
-This is the repository for M5Stack.   
+# M5Stack
+This project is for M5Stack.   
 
 # How to build
 
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
-cd esp-idf-ultrasonic/esp-idf-ultrasonic-Stack
+cd esp-idf-ultrasonic/M5Stack
 idf.py menuconfig
 idf.py flash
 ```

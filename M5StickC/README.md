@@ -1,11 +1,11 @@
-# esp-idf-ultrasonic-StickC
-This is the repository for M5StickC.   
+# M5StickC
+This project is for M5StickC.   
 
 # How to build
 
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
-cd esp-idf-ultrasonic/esp-idf-ultrasonic-StackC
+cd esp-idf-ultrasonic/M5StackC
 idf.pu menuconfig
 idf.py flash --baud 115200
 ```

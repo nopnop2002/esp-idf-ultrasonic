@@ -1,5 +1,5 @@
-# esp-idf-ultrasonic-WebSocket
-This is the repository for generic ESP32.   
+# WebSocket
+This project is for generic ESP32.   
 
 ![Image](https://github.com/user-attachments/assets/5e1cb43d-7230-4d62-8963-6cb94ec9a806)   
 ![Image](https://github.com/user-attachments/assets/b8826410-4e61-4556-9122-f057fa80fb67)   
@@ -12,7 +12,7 @@ This is a great components.
 # How to build
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
-cd esp-idf-ultrasonic/esp-idf-ultrasonic-WebSocket
+cd esp-idf-ultrasonic/WebSocket
 idf.py set-target {esp32/esp32s2/esp32s3/esp32c2/esp32c3/esp32c6}
 idf.py menuconfig
 idf.py flash

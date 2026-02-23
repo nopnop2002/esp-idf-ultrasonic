@@ -1,11 +1,11 @@
-# esp-idf-ultrasonic-Stick
-This is the repository for M5Stick.   
+# M5Stick
+This project is for M5Stick.   
 
 # How to build
 
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
-cd esp-idf-ultrasonic/esp-idf-ultrasonic-Stick
+cd esp-idf-ultrasonic/M5Stick
 idf.py menuconfig
 idf.py flash
 ```
