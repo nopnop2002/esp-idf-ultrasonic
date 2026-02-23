@@ -17,9 +17,9 @@ idf.py flash
 |Ultrasonic||ESP32||
 |:-:|:-:|:-:|:-:|
 |GND|--|GND or GROVE-GND||
-|Echo|--|GPIO21 or GROVE-SDA|(*1)|
-|Trig|--|GPIO22 or GROVE-SCL||
-|VCC|--|5V or GROVE-VCC||
+|Echo|--|GPIO21 or GROVE-G21|(*1)|
+|Trig|--|GPIO22 or GROVE-G22||
+|VCC|--|5V or GROVE-5V||
 
 (*1)   
 The ultrasonic ranging module is powered by 5V.   
