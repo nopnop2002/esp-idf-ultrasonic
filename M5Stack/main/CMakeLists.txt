@@ -1,4 +1,3 @@
-set(component_srcs ultrasonic_main.c ili9340.c fontx.c ultrasonic.c)
+set(component_srcs main.c m5stack.c ili9340.c fontx.c ultrasonic.c)
 
-idf_component_register(SRCS "${component_srcs}"
-                       INCLUDE_DIRS ".")
+idf_component_register(SRCS "${component_srcs}" INCLUDE_DIRS ".")
