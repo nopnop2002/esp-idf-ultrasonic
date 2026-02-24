@@ -33,6 +33,7 @@ So you need to level shift your Echo from 5V to 3.3V.
 
 Press ButtonA (Front button) to start measurement.   
 When a ButtonA (Front button) is pressed for more than 2 seconds, It stop measurement.
+Press ButtonB (Side button) to clear monitor.   
 
 ![ultrasonic-StickC](https://user-images.githubusercontent.com/6020549/61570526-24daa200-aac8-11e9-9c7f-8e296359d791.JPG)
 
