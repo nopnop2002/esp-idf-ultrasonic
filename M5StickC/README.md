@@ -5,7 +5,7 @@ This project is for M5StickC.
 
 ```
 git clone https://github.com/nopnop2002/esp-idf-ultrasonic
-cd esp-idf-ultrasonic/M5StackC
+cd esp-idf-ultrasonic/M5StickC
 idf.pu menuconfig
 idf.py flash --baud 115200
 ```
