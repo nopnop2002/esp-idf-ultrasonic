@@ -36,7 +36,7 @@ So you need to level shift your Echo from 5V to 3.3V.
 # How to use
 
 Press ButtonA (Front button) to start measurement.   
-When a ButtonA (Front button) is pressed for more than 2 seconds, It stop measurement.
+When a ButtonA (Front button) is pressed for more than 2 seconds, It stop measurement.   
 Press ButtonB (Side button) to clear monitor.   
 
 ![Image](https://github.com/user-attachments/assets/ac809c76-a2ac-468d-bb2f-b63d4dfc3496)
