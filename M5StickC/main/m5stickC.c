@@ -27,8 +27,6 @@
 #define DISPLAY_LENGTH 10
 #define GPIO_INPUT_A GPIO_NUM_37
 #define GPIO_INPUT_B GPIO_NUM_39
-#define GPIO_TRIGGER 33
-#define GPIO_ECHO 32
 
 extern QueueHandle_t xQueueCmd;
 
