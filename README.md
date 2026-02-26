@@ -8,11 +8,15 @@ I forked from [here](https://github.com/UncleRus/esp-idf-lib/tree/master/example
 
 ![HY-SRF05-3](https://user-images.githubusercontent.com/6020549/61570755-a67eff80-aac9-11e9-9e9c-19e946fae39f.JPG)
 
+- M5Stack project is for M5Stack
+
 - M5Stick project is for M5Stick
 
 - M5StickC project is for M5StickC
 
-- M5Stack project is for M5Stack
+- M5StickC-Plus project is for M5StickC-Plus
+
+- M5StickC-Plus2 project is for M5StickC-Plus2
 
 - WebSocket project is for generic ESP32
 
