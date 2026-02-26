@@ -1,0 +1,18 @@
+menu "Application Configuration"
+
+	choice FONT_SIZE
+		prompt "Select font"
+		default FONT_8x16
+		help
+			Select font.
+		config FONT_8x16
+			bool "8x16 font"
+			help
+				Use 8x16 font.
+		config FONT_12x24
+			bool "12x24 font"
+			help
+				Use 12x24 font.
+	endchoice
+
+endmenu
