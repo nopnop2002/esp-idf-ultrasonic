@@ -2,9 +2,8 @@
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
-#include <driver/spi_master.h>
-#include <driver/gpio.h>
+#include "driver/spi_master.h"
+#include "driver/gpio.h"
 #include "esp_log.h"
 
 #include "sh1107.h"
@@ -12,7 +11,7 @@
 #define TAG "SH1107"
 
 #ifdef CONFIG_IDF_TARGET_ESP32
-#define LCD_HOST HSPI_HOST
+#define LCD_HOST SPI2_HOST
 #elif defined CONFIG_IDF_TARGET_ESP32S2
 #define LCD_HOST SPI2_HOST
 #elif defined CONFIG_IDF_TARGET_ESP32S3
@@ -76,7 +75,7 @@ void spi_master_init(SH1107_t * dev, int16_t GPIO_MOSI, int16_t GPIO_SCLK, int16
 	assert(ret==ESP_OK);
 	dev->_dc = GPIO_DC;
 	dev->_SPIHandle = handle;
-	dev->_address = SPIAddress;
+	dev->_address = SPI_ADDRESS;
 }
 
 

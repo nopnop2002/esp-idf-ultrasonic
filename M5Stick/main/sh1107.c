@@ -12,7 +12,7 @@
 
 void sh1107_init(SH1107_t * dev, int width, int height)
 {
-	if (dev->_address == SPIAddress) {
+	if (dev->_address == SPI_ADDRESS) {
 		spi_init(dev, width, height);
 	} else {
 		i2c_init(dev, width, height);
@@ -21,7 +21,7 @@ void sh1107_init(SH1107_t * dev, int width, int height)
 
 void sh1107_show_buffer(SH1107_t * dev)
 {
-	if (dev->_address == SPIAddress) {
+	if (dev->_address == SPI_ADDRESS) {
 		for (int page=0; page<dev->_pages;page++) {
 			spi_display_image(dev, page, 0, dev->_page[page]._segs, dev->_width);
 		}
@@ -52,7 +52,7 @@ void sh1107_get_buffer(SH1107_t * dev, uint8_t * buffer)
 
 void sh1107_display_image(SH1107_t * dev, int page, int seg, uint8_t * images, int width)
 {
-	if (dev->_address == SPIAddress) {
+	if (dev->_address == SPI_ADDRESS) {
 		spi_display_image(dev, page, seg, images, width);
 	} else {
 		i2c_display_image(dev, page, seg, images, width);
@@ -125,7 +125,7 @@ void sh1107_clear_screen(SH1107_t * dev, bool invert)
 	}
 	for (int page = 0; page < dev->_pages; page++) {
 		memcpy(&dev->_page[page]._segs[0], zero, 64);
-		if (dev->_address == SPIAddress) {
+		if (dev->_address == SPI_ADDRESS) {
 			spi_display_image(dev, page, 0, zero, dev->_width);
 		} else {
 			i2c_display_image(dev, page, 0, zero, dev->_width);
@@ -152,7 +152,7 @@ void sh1107_clear_line(SH1107_t * dev, int row, bool invert)
 
 void sh1107_contrast(SH1107_t * dev, int contrast)
 {
-	if (dev->_address == SPIAddress) {
+	if (dev->_address == SPI_ADDRESS) {
 		spi_contrast(dev, contrast);
 	} else {
 		i2c_contrast(dev, contrast);
@@ -283,7 +283,7 @@ void sh1107_wrap_arround(SH1107_t * dev, sh1107_scroll_type_t scroll, int start,
 
 	if (delay >= 0) {
 		for (int page=0;page<dev->_pages;page++) {
-			if (dev->_address == SPIAddress) {
+			if (dev->_address == SPI_ADDRESS) {
 				spi_display_image(dev, page, 0, dev->_page[page]._segs, 64);
 			} else {
 				i2c_display_image(dev, page, 0, dev->_page[page]._segs, 64);
@@ -412,7 +412,7 @@ void sh1107_rotate_image(uint8_t * buf, int dir)
 void sh1107_fadeout(SH1107_t * dev)
 {
 	void (*func)(SH1107_t * dev, int page, int seg, uint8_t * images, int width);
-	if (dev->_address == SPIAddress) {
+	if (dev->_address == SPI_ADDRESS) {
 		func = spi_display_image;
 	} else {
 		func = i2c_display_image;

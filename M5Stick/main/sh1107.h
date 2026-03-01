@@ -2,6 +2,7 @@
 #define MAIN_SH1107_H_
 
 #include "driver/spi_master.h"
+#include "driver/i2c_master.h"
 
 /* Control byte for i2c
 Co : bit 8 : Continuation Bit
@@ -28,8 +29,8 @@ Usage:
 #define DIRECTION180	2
 #define DIRECTION270	3
 
-#define I2CAddress 0x3C
-#define SPIAddress 0xFF
+#define I2C_ADDRESS 0x3C
+#define SPI_ADDRESS 0xFF
 
 typedef enum {
 	SCROLL_RIGHT = 1,
@@ -52,7 +53,10 @@ typedef struct {
 	int _pages;
 	int _direction;
 	int16_t _dc;
+	i2c_port_t _i2c_num;
 	spi_device_handle_t _SPIHandle;
+	i2c_master_bus_handle_t _i2c_bus_handle;
+	i2c_master_dev_handle_t _i2c_dev_handle;
 	PAGE_t _page[16];
 } SH1107_t;
 
